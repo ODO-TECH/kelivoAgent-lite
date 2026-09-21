@@ -38,15 +38,6 @@ KelivoAgent-lite is a Windows PC coding-agent client based on Kelivo. This repos
 - Prompt optimization through a separately configurable optimization model.
 - Pi Agent-compatible default system prompt.
 
-### Providers And Voice
-
-- SiliconFlow model provider support.
-- Aliyun voice model support.
-- Existing Kelivo providers and custom OpenAI-compatible endpoints remain available.
-
-## Explicit Scope
-
-The desktop pet experiment was removed from this project. This repository does not contain or launch a Flutter desktop pet, a Python desktop pet, or a separate pet process.
 
 ## Build On Windows
 
