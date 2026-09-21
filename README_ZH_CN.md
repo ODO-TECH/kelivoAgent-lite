@@ -1,133 +1,90 @@
-<div align="center">
-  <img src="assets/app_icon.png" alt="Kelivo Icon" width="100" />
-  <h1>Kelivo</h1>
+# KelivoAgent-lite
 
-一个 Flutter LLM 聊天客户端
+KelivoAgent-lite 是一个基于 Kelivo 开发的 Windows PC 编程 Agent 客户端。本仓库是本项目自己的分支版本，文档只描述本分支实际维护的功能，不再沿用上游 Kelivo 的产品介绍和发布信息。
 
-  <a href="https://discord.gg/Tb8DyvvV5T" target="_blank">
-    <img src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord"/>
-  </a>
-  <a href="https://qm.qq.com/q/OQaXetKssC" target="_blank" style="margin-left: 6px;">
-    <img src="https://img.shields.io/badge/Join%20QQ%20Group-%230366CC?style=for-the-badge&logo=qq&logoColor=white" alt="Join QQ Group"/>
-  </a>
+## 项目定位
 
-[English](README.md) | 简体中文
-</div>
+- 以 Windows 桌面端为首要目标。移动平台目录仍保留在源码中用于兼容，但不作为本项目的主要发布目标。
+- 默认使用 Pi Agent 内核作为 Agent 运行时，用户可以选择是否更新 Pi Agent 内核。
+- 默认 Agent 系统提示词采用 Pi Agent 官方风格的精简提示词。
 
-## KelivoAgent-lite 分支新增功能
+## 本分支新增功能
 
-本分支基于 Kelivo，主要面向 Windows PC 端，并新增了以下 Agent 能力：
+### Agent 与工作目录
 
-- **Pi Agent 内核集成**：支持可选、由用户控制的 Pi Agent 内核更新。
-- **工作目录优先的 Agent 工作流**：可创建或关联工作目录，选择工作目录，浏览文件，并在授权后执行工具。
-- **可选择的桌面 Shell**：支持 PowerShell、命令提示符、Git Bash，以及自定义 Shell 可执行文件路径。
-- **Codex 风格输入语法**：支持 `/command` 和 `$skill-name`，输入框会识别并高亮，同时保持发送给模型的原始文本不变。
-- **内置 Skill**：预装 Skill Creator 和 PaddleOCR，并支持 Skill 发现及工作目录相关的 Skill 提示词。
-- **提示词优化**：支持配置专用的提示词优化模型。
-- **新增模型与服务支持**：包括阿里云语音模型和硅基流动模型支持。
+- 可以在桌面端创建、选择和管理工作目录。
+- 支持工作目录内的文件浏览、文件编辑、授权命令执行和工具调用。
+- 集成 Pi Agent sidecar，支持自主 Agent 工作流。
+- 支持由用户控制的 Pi Agent 内核更新。
 
-本分支的主要目标是桌面端。源码仍保留上游兼容的其他平台目录，但便携版和日常验证以 Windows PC 为准。
+### Shell
 
-<div align="center">
-  <img src="docx/screenshot_1.png" alt="聊天界面" width="150" />
-  <img src="docx/screenshot_2.png" alt="模型选择" width="150" />
-  <img src="docx/screenshot_3.png" alt="工具调用" width="150" />
-  <img src="docx/screenshot_4.png" alt="网络搜索" width="150" />
-</div>
+- PowerShell。
+- Windows 命令提示符。
+- Git Bash。
+- 用户自定义 Shell 可执行文件路径。
 
-## 🚀 下载
+### 输入语法
 
-[![Download on the App Store](https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg)](https://apps.apple.com/us/app/kelivo/id6752122930)
+- 支持 Codex 风格的 `/command` 命令语法。
+- 支持 Codex 风格的 `$skill-name` skill 语法。
+- 聊天输入框会高亮命令和 skill，但不会修改发送给模型的原始文本。
 
+### Skill 与提示词工具
 
-🔗 [下载最新版本](https://github.com/Chevey339/kelivo/releases/latest)
+- 预装 Skill Creator，用于创建和维护 skill。
+- 预装 PaddleOCR skill，可以在设置中开启或关闭。
+- 支持配置 OCR API Key。
+- 支持配置独立的提示词优化模型。
+- 默认系统提示词与 Pi Agent 风格保持一致。
 
-🔗 [TestFlight](https://testflight.apple.com/join/erbGGykR) 参与测试版体验。
+### 模型与语音
 
-## 💖 赞助
+- 支持硅基流动模型供应商。
+- 支持阿里云语音模型。
+- 保留 Kelivo 原有模型供应商和 OpenAI 兼容自定义接口。
 
-<table>
-<tr>
-<td width="180" align="center" valign="middle">
-  <b><a href="https://siliconflow.cn">siliconflow.cn</a></b>
-</td>
-<td valign="middle">感谢 siliconflow.cn 与我们合作提供可免费使用的模型。</td>
-</tr>
-<tr>
-<td width="180" align="center" valign="middle">
-  <a href="https://sui-xiang.com"><img src="docs/sponsors/suixiang.jpg" alt="随想AI中转" width="150"></a><br />
-  <b><a href="https://sui-xiang.com">随想AI中转</a></b>
-</td>
-<td valign="middle">感谢<a href="https://sui-xiang.com">随想AI中转</a>对本项目的赞助！随想AI中转 是一家可靠高效的 API 中继服务提供商，提供 Claude、Codex、Gemini 等的中继服务。注重隐私的中转站·无数据倒卖·无模型掺水，隐私，透明，极速售后。新账户注册每日签到就送 0.5 元测试额度，充值额度 1:1，无需订阅，按量付费。多线路冗余、跨区域容灾、自动故障切换，长链路 SSE 不中断。99.9% 可用性，关键调用从不掉队。</td>
-</tr>
-<tr>
-<td width="180" align="center" valign="middle">
-  <a href="https://api.muteki.site/register?aff=kelivo&promo=kelivo"><img src="docs/sponsors/marucode.jpg" alt="MaruCode" width="150"></a>
-</td>
-<td valign="middle"><b><a href="https://api.muteki.site/register?aff=kelivo&promo=kelivo">MaruCode</a></b> 是一家偶尔做做慈善的小破站 API，自营号池，主要提供 Codex、Claude Code、GPT Image 等主流模型，支持 Websocket 协议，明码标价(Codex 0.25x, CC 1.5x)，透明汇率(1:1)，<a href="https://api.muteki.site/register?aff=kelivo&promo=kelivo">新用户注册送 2 刀</a>。<a href="https://images-2.muteki.site">生图工作台🖼️</a></td>
-</tr>
-</table>
+## 明确范围
 
-## ✨ 功能特性
+本项目已经移除桌宠实验功能。仓库中不包含 Flutter 桌宠、Python 桌宠，也不会启动独立的桌宠进程。
 
-- 🎨 **现代化设计** - Material You 设计语言，支持动态主题色(Android12+)
-- 🌙 **深色模式** - 完美适配深色主题，保护您的眼睛
-- 🌍 **多语言支持** - 支持中文和英文界面
-- 🖥️ **多平台支持** - 移动端与桌面端均支持（Android/iOS/Harmony、Windows/macOS/Linux）
-- 🔄 **多供应商支持** - 支持 OpenAI、Google Gemini、Anthropic 等主流 AI 供应商
-- 🤖 **自定义助手** - 创建和管理个性化 AI 助手
-- 🖼️ **多模态输入** - 支持图片、文本文档、PDF、Word 文档等多种格式
-- 📝 **Markdown 渲染** - 完整支持代码高亮、LaTeX 公式、表格等
-- 🎙️ **语音服务** - 内置系统 TTS，同时支持 OpenAI / Google Gemini / ElevenLabs 语音服务器
-- 🛠️ **MCP 支持** - Model Context Protocol 工具集成
-- 🧰 **内置 MCP 工具** - 内置 fetch MCP 工具
-- 🔍 **网络搜索** - 集成多种搜索引擎（Bing、DuckDuckGo、Exa、Tavily、智谱、LinkUp、Brave、Metaso、SearXNG、Ollama、Jina、Perplexity、Bocha、Serper、Grok）
-- 🧩 **提示词变量** - 支持模型名称、时间等动态变量
-- 📤 **二维码分享** - 通过二维码导出和导入供应商配置
-- 💾 **数据备份** - 支持聊天记录备份和恢复
-- 🌐 **自定义请求** - 支持自定义 HTTP 请求头和请求体
-- 🔡 **自定义字体** - 支持系统字体、本地字体导入和按需下载 Google Fonts
-- ⚙️ **Android 后台生成对话** - 可在后台持续生成消息（可在设置中开启）。
+## Windows 构建
 
-## 📱 平台支持
+环境要求：
 
-- ✅ Android
-- ✅ iOS
-- ✅ Harmony ([kelivo-ohos](https://github.com/Chevey339/kelivo-ohos))
-- ✅ Windows
-- ✅ macOS
-- ✅ Linux
+- 支持 Windows 桌面端的 Flutter stable。
+- 安装了 Desktop development with C++ 工作负载的 Visual Studio。
+- 如果需要重新构建 Pi Agent sidecar，需要安装 Bun。
 
-## 🤝 贡献指南
+```powershell
+cd kelivo-master
+flutter pub get
+flutter build windows --release --no-pub
+```
 
-欢迎提交 Pull Request 或创建 Issue！
+Windows 可执行文件生成在：
 
-1. Fork 本仓库
-2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个 Pull Request
+```text
+build/windows/x64/runner/Release/kelivo.exe
+```
 
-## ❤️ 致谢
+构建 sidecar：
 
-特别感谢 [RikkaHub](https://github.com/re-ovo/rikkahub) 项目提供的 UI 设计灵感。Kelivo 的界面设计深受 RikkaHub 优美且实用的设计启发。
+```powershell
+cd agent-sidecar
+bun install
+bun run build
+bun run smoke
+```
 
-## ⭐ Star History
+## 目录说明
 
-如果你喜欢这个项目，可以给个Star ⭐
+- `lib/`：Flutter 应用和桌面 Agent 功能。
+- `agent-sidecar/`：Pi Agent sidecar 桥接程序。
+- `assets/skills/`：内置 skill，包括 Skill Creator 和 PaddleOCR。
+- `test/`：单元测试和组件测试。
+- `windows/`：Windows 桌面端 runner。
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Chevey339/kelivo&type=Date)](https://star-history.com/#Chevey339/kelivo&Date)
+## 许可证与来源
 
-## 📄 许可证
-
-本项目采用 AGPL-3.0 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
-
-## 📞 联系我们
-
-- Issue: [GitHub Issues](https://github.com/Chevey339/kelivo/issues)
-
----
-
-<div align="center">
-Made with ❤️ using Flutter
-</div>
+KelivoAgent-lite 基于 Kelivo 开发。适用的许可证和来源说明见 `LICENSE`。
