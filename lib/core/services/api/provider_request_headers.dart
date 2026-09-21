@@ -2,7 +2,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../providers/settings_provider.dart';
 
-const String _openRouterAppReferer = 'https://github.com/Chevey339/kelivo';
+const String _openRouterAppReferer = 'https://github.com/ODO-TECH/kelivoAgent-lite';
 const String _openRouterAppTitle = 'Kelivo';
 const String _openRouterAppCategories = 'general-chat';
 
