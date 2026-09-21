@@ -44,10 +44,6 @@ KelivoAgent-lite 是一个基于 Kelivo 开发的 Windows PC 编程 Agent 客户
 - 支持阿里云语音模型。
 - 保留 Kelivo 原有模型供应商和 OpenAI 兼容自定义接口。
 
-## 明确范围
-
-本项目已经移除桌宠实验功能。仓库中不包含 Flutter 桌宠、Python 桌宠，也不会启动独立的桌宠进程。
-
 ## Windows 构建
 
 环境要求：
