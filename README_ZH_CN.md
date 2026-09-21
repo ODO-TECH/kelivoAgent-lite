@@ -38,11 +38,6 @@ KelivoAgent-lite 是一个基于 Kelivo 开发的 Windows PC 编程 Agent 客户
 - 支持配置独立的提示词优化模型。
 - 默认系统提示词与 Pi Agent 风格保持一致。
 
-### 模型与语音
-
-- 支持硅基流动模型供应商。
-- 支持阿里云语音模型。
-- 保留 Kelivo 原有模型供应商和 OpenAI 兼容自定义接口。
 
 ## Windows 构建
 
